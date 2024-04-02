@@ -8,7 +8,7 @@ public class Order {
 
     private OrderLine orderLine;
 
-    Order(int orderNum, LocalDate orderDate){
+    public Order(int orderNum, LocalDate orderDate){
         this.orderNum = orderNum;
         this.orderDate = orderDate;
         orderLine = new OrderLine(this);
