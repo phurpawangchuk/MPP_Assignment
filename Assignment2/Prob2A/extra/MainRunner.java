@@ -1,6 +1,6 @@
-package Assignment2.Prob2A.extra;
+package Assignment2.prob2A.extra;
 
-import Assignment2.Prob2A.Student;
+import Assignment2.prob2A.Student;
 
 public class MainRunner {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package Assignment2.Prob2B.extra;
+package Assignment2.prob2B.extra;
 
-import Assignment2.Prob2B.Order;
+import Assignment2.prob2B.Order;
 import sun.util.resources.LocaleData;
 
 import java.time.LocalDate;
@@ -18,6 +18,6 @@ public class MainRunner {
         double price = order.getOrderLine().getPrice();
 
         System.out.println("Ordernm: "+order.getOrderNum()+", Order Date:"+order.getOrderDate());
-        System.out.println("Orderlinenum : "+orderLinenum+" Total order: "+price*qty);
+        System.out.println("Orderlinenum : "+orderLinenum+" Total order (price*qty): ("+price+"*"+qty+") = "+price*qty);
     }
 }

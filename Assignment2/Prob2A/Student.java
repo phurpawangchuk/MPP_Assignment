@@ -1,4 +1,4 @@
-package Assignment2.Prob2A;
+package Assignment2.prob2A;
 
 public class Student {
     private String studentName;

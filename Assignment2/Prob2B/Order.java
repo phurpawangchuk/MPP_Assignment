@@ -1,4 +1,4 @@
-package Assignment2.Prob2B;
+package Assignment2.prob2B;
 
 import java.time.LocalDate;
 
