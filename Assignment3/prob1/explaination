@@ -1,0 +1,10 @@
+ *************************************************************************
+ * Explanation:
+ * The equals() method that was declared in the Person class was implemented by
+ * only comparing the "name" field while the PersonWithJob class was comparing
+ * both "name" and "salary" which will not be equal when comparing PersonWithJob
+ * to Person.Therefore,
+ * p1.equals(p2) is false (since p2 doesn't have a "salary"). Where as
+ * p2.equals(p1) it is true since when checking the equals inside the Person
+ * class it is only checking the "name" property which is same in this case.
+ *************************************************************************
