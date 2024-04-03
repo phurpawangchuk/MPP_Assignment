@@ -2,18 +2,21 @@ package Assignment2.prob2A;
 
 public class GradeReport {
     private String grade;
-    private Student studentAsOwner;
+    private Student owner;
 
     GradeReport(Student student){
-        studentAsOwner = student;
+        owner = student;
     }
 
-    public void setGrade(String grade){
-        this.grade = grade;
-    }
-
-    public String getGrade(){
+    public String getGrade() {
         return grade;
     }
 
+    public Student getOwner() {
+        return owner;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
 }

@@ -1,20 +1,24 @@
 package Assignment2.prob2A;
 
 public class Student {
-    private String studentName;
+    private String name;
     private GradeReport gradeReport;
 
-    public Student(String name){
-        studentName = name;
+    Student(String name){
+        this.name = name;
         gradeReport = new GradeReport(this);
     }
 
-    public GradeReport getGradeReport(){
-        return  gradeReport;
+    public String getName() {
+        return name;
     }
 
-    public String getStdudentName(){
-        return studentName;
+    public GradeReport getGradeReport() {
+        return gradeReport;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
