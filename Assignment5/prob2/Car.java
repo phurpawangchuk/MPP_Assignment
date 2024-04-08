@@ -1,6 +1,8 @@
-package Assignment5.prob2;/**
- * @author phurpawangchuk
- * @contact phurpa.wangchuk@miu.edu
- * @year 2024-05-04
- */public class Car {
+package Assignment5.prob2;
+
+public class Car  implements Vehicle {
+    @Override
+    public void startEngine() {
+        System.out.println("Car engine started.");
+    }
 }
