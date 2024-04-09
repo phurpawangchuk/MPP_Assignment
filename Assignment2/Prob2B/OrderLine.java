@@ -1,37 +1,21 @@
 package Assignment2.prob2B;
 
 public class OrderLine {
-    private int orderlinenum;
+    private int linenum;
     private double price;
-    private int quatity;
+    private int quantity;
 
-    private Order owner;
+    private Order order;
 
-    OrderLine(Order order){
-        owner = order;
-    }
-
-    public void setOrderlinenum(int orderlinenum) {
-        this.orderlinenum = orderlinenum;
-    }
-
-    public void setPrice(double price) {
+    OrderLine(int linenum, double price, int quantity, Order order){
+        this.linenum = linenum;
         this.price = price;
+        this.quantity = quantity;
+        this.order = order;
     }
 
-    public void setQuatity(int quatity) {
-        this.quatity = quatity;
-    }
-
-    public int getOrderlinenum() {
-        return orderlinenum;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public int getQuatity() {
-        return quatity;
+    @Override
+    public String toString() {
+        return "  line item: \n"  + "    line num = " + linenum + "    price = " + price + "    quantity = "+ quantity;
     }
 }

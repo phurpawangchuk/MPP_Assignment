@@ -1,32 +1,33 @@
 package Assignment2.prob2B;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
     private int orderNum;
     private LocalDate orderDate;
 
-    private OrderLine orderLine;
+    private List<OrderLine> orderLines;
 
-    public Order(int orderNum, LocalDate orderDate){
+    public Order(int orderNum, LocalDate orderDate, int lineNum, double price, int qty){
         this.orderNum = orderNum;
         this.orderDate = orderDate;
-        orderLine = new OrderLine(this);
+        orderLines = new ArrayList<>();
+        addOrderLine(lineNum,price,qty);
     }
 
-    public int getOrderNum() {
-        return orderNum;
+    public void addOrderLine(int linenum, double price, int qty){
+        orderLines.add(new OrderLine(linenum, price,qty, this));
     }
 
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
+    @Override
+    public String toString() {
+        String msg = "Order: \n";
+        for(OrderLine o : orderLines) {
+            msg += o.toString() + "\n";
 
-    public OrderLine getOrderLine(){
-        return orderLine;
-    }
-
-    public void setOrderLine(OrderLine orderLine) {
-        this.orderLine = orderLine;
+        }
+        return msg;
     }
 }

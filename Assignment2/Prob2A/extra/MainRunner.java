@@ -8,6 +8,7 @@ public class MainRunner {
 
         Student student = StudentGradeFactory.createStudent("Alice");
 
+        student.getGradeReport().setGrade("A");
         String grade =  student.getGradeReport().getGrade();
         String name = student.getName();
 

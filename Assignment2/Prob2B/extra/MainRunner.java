@@ -4,20 +4,22 @@ import Assignment2.prob2B.Order;
 import sun.util.resources.LocaleData;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class MainRunner {
     public static void main(String[] args) {
-        Order order = new Order(1, LocalDate.now());
-        order.getOrderLine().setOrderlinenum(3);
-        order.getOrderLine().setPrice(25);
-        order.getOrderLine().setQuatity(5);
+        Order order = new Order(1, LocalDate.now(), 1, 25.0, 5);
+        order.addOrderLine(1,5.0,3);
 
-        int orderLinenum = order.getOrderLine().getOrderlinenum();
-        int qty = order.getOrderLine().getQuatity();
-        double price = order.getOrderLine().getPrice();
+        Order order1 = new Order(2,LocalDate.now().plusDays(1), 2, 5.0, 5);
+        order1.addOrderLine(2,5.5, 4);
+        order1.addOrderLine(3,3.5, 4);
+        order1.addOrderLine(5,4.5, 4);
 
-        System.out.println("Ordernm: "+order.getOrderNum()+", Order Date:"+order.getOrderDate());
-        System.out.println("Orderlinenum : "+orderLinenum+" Total order (price*qty): ("+price+"*"+qty+") = "+price*qty);
+        List<Order> orders = Arrays.asList(order,order1);
+
+        System.out.println(orders);
     }
 }
