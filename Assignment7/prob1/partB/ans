@@ -1,0 +1,4 @@
+The equals() method signature is not properly overriden.
+Parameter passed should be Object and not Employee.
+Also, equals() method body is not properly implemented.
+

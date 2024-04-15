@@ -1,0 +1,4 @@
+The equals() and hashCode() are correctly implemented.
+setVisited status of the Employee is altered to true (while removing duplicate),
+which changes the hashCode. Therefore, it returns false.
+

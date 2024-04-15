@@ -73,8 +73,6 @@ public class LoginWindow extends JFrame implements LibWindow {
     		isInitialized(true);
     		pack();
     		//setSize(660, 500);
-
-    	
     }
     private void defineUpperHalf() {
     		

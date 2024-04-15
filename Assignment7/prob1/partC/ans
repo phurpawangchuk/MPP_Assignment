@@ -1,0 +1,1 @@
+There is no hashCode() method. As per the rule, if there is equals(), then there should be hashCode().

@@ -91,7 +91,6 @@ public class LibrarySystem extends JFrame implements LibWindow {
 
         addBooks = new JMenuItem("Add Book");
         addBooks.setVisible(true);
-//        System.out.println(new LoginWindow().getBooksAccess());
         addBooks.addActionListener(new AllMemberIdsListener());
 
         addMembers = new JMenuItem("Add Member");

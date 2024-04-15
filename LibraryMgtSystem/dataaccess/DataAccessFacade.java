@@ -1,8 +1,5 @@
 package LibraryMgtSystem.dataaccess;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,10 +21,11 @@ public class DataAccessFacade implements DataAccess {
 			+ "\\src\\dataaccess\\storage";*/
 	
 	// For Mac Users path can use / 
-	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
-			+ "/LibraryMgtSystem/dataaccess/storage";
-	
-	public static final String DATE_PATTERN = "MM/dd/yyyy";
+	public static final String OUTPUT_DIR = System.getProperty("user.dir")
+            + "/-LibraryMgtSystem/dataaccess/storage";
+//    public static final String OUTPUT_DIR = "/Users/phurpawangchuk/Documents/MIU/MPP/Assignment/LibraryMgtSystem/dataaccess/storage/";
+
+    public static final String DATE_PATTERN = "MM/dd/yyyy";
 	
 	//implement: other save operations
 	public void saveNewMember(LibraryMember member) {
@@ -85,8 +83,10 @@ public class DataAccessFacade implements DataAccess {
 	static void saveToStorage(StorageType type, Object ob) {
 		ObjectOutputStream out = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
-			out = new ObjectOutputStream(Files.newOutputStream(path));
+            //Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
+            Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
+            out = new ObjectOutputStream(Files.newOutputStream(path));
+
 			out.writeObject(ob);
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -103,9 +103,11 @@ public class DataAccessFacade implements DataAccess {
 		ObjectInputStream in = null;
 		Object retVal = null;
 		try {
+            //Read from the stored file
 			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, type.toString());
 			in = new ObjectInputStream(Files.newInputStream(path));
 			retVal = in.readObject();
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
