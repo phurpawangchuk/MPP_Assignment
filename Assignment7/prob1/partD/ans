@@ -1,4 +1,12 @@
-The equals() and hashCode() are correctly implemented.
-setVisited status of the Employee is altered to true (while removing duplicate),
-which changes the hashCode. Therefore, it returns false.
+The intention of given java code is to remove duplicates and check whether the duplicates
+list and removed duplicates are same or not.
+The method intends to remove duplicates by putting the equals Employee objects key to the objects
+with same value in a hashmap named “tracker”. Similar key objects are intended to store/update
+with the same value as objects in the map, which implies key with similar attributes value is
+intended to stored/updated once with a key object.
+However, because of the setter method to the attribute “Visited” distort the equals functionality
+between the Employee with same name and address but different visited status
+which changes to “true” . This means that Employee with same name and address
+but different visited status will be store in two different locations of Hashmap
+resulting in unintended execution.
 
