@@ -15,11 +15,24 @@ public class ForEachExample {
 		
 		//print each element of the list in upper case format
 
-        list.forEach(new Consumer<String>() {
-            @Override
-            public void accept(String s) {
-                System.out.println(s.toUpperCase());
-            }
-        });
+        //Method 1: Lambda style
+        list.forEach(s -> System.out.println(s.toUpperCase()));
+
+        //Method 2: Using user defined consumer
+        //        Consumer<String> myConsumer = new Consumer<String>() {
+        //            @Override
+        //            public void accept(String s) {
+        //                System.out.println(s.toUpperCase());
+        //            }
+        //        };
+        //        list.forEach(myConsumer);
+
+        //Method 3: Using anonymous function
+        //        list.forEach(new Consumer<String>() {
+        //            @Override
+        //            public void accept(String s) {
+        //                System.out.println(s.toUpperCase());
+        //            }
+        //        });
 	}
 }
