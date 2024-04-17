@@ -30,6 +30,7 @@ public class ProbD {
                 int compareResult =  p1.getTitle().compareTo(p2.getTitle());
                 //If title is same
                 if(compareResult == 0){
+//                    return Double.compare(p1.getPrice(), p2.getPrice());
                     if(p1.model > p2.model) return 1;
                     else if(p1.model < p2.model) return -1;
                     else return 0;

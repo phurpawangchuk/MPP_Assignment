@@ -34,9 +34,11 @@ public class ProbC {
                if(method == SORT_METHOD.TITLE){
                    return p1.title.compareTo(p2.title);
                }else{
-                   if(p1.price > p2.price) return 1;
-                   else if(p1.price < p2.price) return -1;
-                   else return 0;
+                   return Double.compare(p1.getPrice(), p2.getPrice());
+//
+//                   if(p1.price > p2.price) return 1;
+//                   else if(p1.price < p2.price) return -1;
+//                   else return 0;
                }
             }
         }
