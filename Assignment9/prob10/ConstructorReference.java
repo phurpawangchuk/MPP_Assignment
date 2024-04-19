@@ -58,11 +58,11 @@ public static void main(String args[]){
 
     List<Human> humanList = Arrays.asList(list);
     // Query 1  : Print only Female canditates names
-	List<String> result = humanList.stream()
+	List<String> femaleName = humanList.stream()
                     .filter(h ->h.getGender().equals("Female"))
                     .map(n->n.getName())
                     .collect(Collectors.toList());
-    System.out.println(result);
+    System.out.println(femaleName);
 
     // Query 2 : Create an object by choosing suitable Interface to the specified constructors(
     // Totally 3 constuctors)using
@@ -71,21 +71,18 @@ public static void main(String args[]){
     Function<String,Human> human = Human::new;
     System.out.println(human.apply("Alice"));
 
-    BiFunction<String,Integer, Human> human1 = Human::new;
-    System.out.println(human1.apply("Alice", 35));
+    BiFunction<String,Integer, Human> humanTwo = Human::new;
+    System.out.println(humanTwo.apply("Alice", 35));
 
-    TriFunction<String, Integer, String, Human> human2 = Human::new;
-    System.out.println(human2.apply("Bob", 32, "Male"));
+    TriFunction<String, Integer, String, Human> humanThree = Human::new;
+    System.out.println(humanThree.apply("Bob", 32, "Male"));
 
 	// Query 3 : Count the male candidates whose age is more than 30
-    int count = (int) humanList.stream()
-            .filter(c -> c.getGender().equals("Male"))
-            .filter(h ->h.getAge()>30)
-            .count();
-    System.out.println("Male count: "+count);
-    
-    
+    int maleCount = (int) humanList.stream()
+                    .filter(c -> c.getGender().equals("Male"))
+                    .filter(h ->h.getAge()>30)
+                    .count();
+    System.out.println("Male count: "+maleCount);
+
    }
-
-
 }
