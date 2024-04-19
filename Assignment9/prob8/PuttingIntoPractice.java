@@ -8,6 +8,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class PuttingIntoPractice{
     public static void main(String ...args){    
@@ -15,8 +16,6 @@ public class PuttingIntoPractice{
         Trader mario = new Trader("Mario","Milan");
         Trader alan = new Trader("Alan","Cambridge");
         Trader brian = new Trader("Brian","Cambridge");
-
-        List<Trader> traders = Arrays.asList(raoul,mario,alan,brian);
 
 		List<Transaction> transactions = Arrays.asList(
             new Transaction(brian, 2011, 300), 
@@ -29,58 +28,56 @@ public class PuttingIntoPractice{
         
         
         // Query 1: Find all transactions from year 2011 and sort them by value (small to high).
-        List<Transaction> transactions1 = transactions.stream()
+        List<Transaction> transactionsList = transactions.stream()
                 .filter(t -> t.getYear()==2011)
                 .sorted(Comparator.comparing(Transaction::getValue))
                 .collect(Collectors.toList());
-        System.out.println(transactions1);
+        System.out.println(transactionsList);
 
         
         // Query 2: What are all the unique cities where the traders work?
-        List<String> result =  traders.stream()
-                .map(Trader::getCity)
+        List<String> uniqueCityies =  transactions.stream()
+                .map(t ->t.getTrader().getCity())
                 .distinct()
                 .collect(Collectors.toList());
-        System.out.println(result);
+        System.out.println(uniqueCityies);
 
         // Query 3: Find all traders from Cambridge and sort them by name.
-        List<Trader> result1 = traders.stream()
-                .filter(c ->c.getCity().equals("Cambridge"))
-                .sorted(Comparator.comparing(Trader::getName))
-                .collect(Collectors.toList());
-        System.out.println(result1);
+        transactions.stream()
+                .filter(t ->t.getTrader().getCity().equals("Cambridge"))
+                .sorted(Comparator.comparing(t ->t.getTrader().getName()));
+        //System.out.println(tradersFromCambridge.);
 
         // Query 4: Return a string of all traders names sorted alphabetically.
-        List<String> traderNames = traders.stream()
-                .map(t->t.getName())
+        List<String> traderNamesSorted = transactions.stream()
+                .map(t->t.getTrader().getName())
                 .sorted()
                 .collect(Collectors.toList());
-        System.out.println(traderNames);
+        System.out.println(traderNamesSorted);
 
         // Query 5: Are there any trader based in Milan?
-        Long result2 = traders.stream()
-                .filter(c ->c.getCity().equals("Milan"))
+        Long traderInMilan = transactions.stream()
+                .filter(c ->c.getTrader().getCity().equals("Milan"))
                 .count();
-        System.out.println(result2);
+        System.out.println(traderInMilan);
 
 
         System.out.println("+++======================");
         BiConsumer<Trader, String> update = (t, c) -> t.setCity(c);
      // Query 6: Update all transactions so that the traders from Milan are set to Cambridge.
-        traders.stream()
-                .filter(t ->t.getCity().equals("Milan"))
-                .map(t -> update)
+        transactions.stream()
+                .filter(t ->t.getTrader().getCity().equals("Milan"))
+               // .map(t -> t.getTrader().setCity("Cambridge"))
                 .forEach(System.out::println);
-        update.accept(new Trader("a","a"), "Cambridge");
-        System.out.println(traders);
+        //update.accept(new Trader("a","a"), "Cambridge");
 
         System.out.println("+++======================");
 
         // Query 7: What's the highest value in all the transactions?
-        Optional<Integer> maxTransaction = transactions.stream()
+        Optional<Integer> higestTransaction = transactions.stream()
                 .max(Comparator.comparing(Transaction::getValue))
                 .map(v ->v.getValue());
-        System.out.println(maxTransaction.orElse(0));
+        System.out.println(higestTransaction.orElse(0));
 
     }
 }
