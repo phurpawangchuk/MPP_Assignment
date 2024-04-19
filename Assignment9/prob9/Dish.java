@@ -85,7 +85,11 @@ public class Dish {
 
     public static void main(String[] args) {
 
+        System.out.println(isAnyVegetarianMeal());
+        System.out.println(isHealthyMeal());
+        System.out.println(unHealthyMeal());
         System.out.println(firstMeatItem().orElse(null));
+
     }
 }
 
