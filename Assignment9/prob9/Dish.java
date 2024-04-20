@@ -57,29 +57,37 @@ public class Dish {
 
     //b. Is there any healthy menu have calories less than 1000 ( return type boolean)
     public static boolean isHealthyMeal(){
-        return menu.stream().filter(f ->f.getCalories()<1000).findAny().isPresent();
+        return menu.stream()
+                .filter(f ->f.getCalories()<1000)
+                .findAny().isPresent();
     }
 
     //c. Is there any unhealthy menu have calories greater than 1000 ( return type boolean)
     public static boolean unHealthyMeal(){
-        return menu.stream().filter(f ->f.getCalories()>1000).findAny().isPresent();
+        return menu.stream()
+                .filter(f ->f.getCalories()>1000)
+                .findAny().isPresent();
     }
 
     //d. find and return the first item for the type of MEAT( return type Optional<Dish>)
     public static Optional<Dish> firstMeatItem(){
-        return menu.stream().filter(t -> t.getType() == Type.MEAT).findFirst();
+        return menu.stream()
+                .filter(t -> t.getType() == Type.MEAT)
+                .findFirst();
     }
 
     //e. calculateTotalCalories() in the menu using reduce. (return int)
     public static double calculateTotalCalories(){
-//        return menu.stream().reduce(0, t -> t.getCalories());
-        return 0.0;
+        return menu.stream()
+                .map(m -> m.getCalories())
+                .reduce(0, Integer::sum);
+//                .reduce(0, (c1, c2) -> c1+c2);
+
     }
 
     //f. calculateTotalCaloriesMethodReference()in the menu using MethodReferences. (return int)
     public static double calculateTotalCaloriesMethodReference(){
-//        return menu.stream().reduce(0, t -> t.getCalories());
-        return 0.0;
+        return menu.stream().map(Dish::getCalories).reduce(0, Integer::sum);
     }
 
 
@@ -89,6 +97,8 @@ public class Dish {
         System.out.println(isHealthyMeal());
         System.out.println(unHealthyMeal());
         System.out.println(firstMeatItem().orElse(null));
+        System.out.println(calculateTotalCalories());
+        System.out.println(calculateTotalCaloriesMethodReference());
 
     }
 }

@@ -17,6 +17,15 @@ public class Main {
 		                  new Employee("Donald", "Trump", 100000));
 		
 		//your stream pipeline here
+        String result = list.stream()
+                .filter(s->s.getSalary()>100000)
+                .filter(n->n.getLastName().charAt(0)>='N' && n.getLastName().charAt(0)<='Z')
+                .map(n->n.getFullName())
+                .sorted()
+                .collect(Collectors.joining(", "));
+        System.out.println(result);
+
+
 
 	}
 

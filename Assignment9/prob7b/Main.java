@@ -15,7 +15,16 @@ public class Main {
 		                  new Employee("Thomas", "Blake", 111000),
 		                  new Employee("Alice", "Richards", 101000),
 		                  new Employee("Donald", "Trump", 100000));
-		
+
+        System.out.println("Filtered employee using user own defined FI.");
+        String names = LambdaLibrary.FILTER_EMPLOYEE.apply(list,100000,'N','Z');
+        System.out.println(names);
+
+        //Using TriFunction
+        System.out.println("Filtered employee using TriFunction.");
+        String resultNames = LambdaLibrary.FILTERRED_EMPLOYEE.apply(list,'N','Z');
+        System.out.println(resultNames);
+
 		
 	}
 

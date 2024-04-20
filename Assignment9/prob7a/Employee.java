@@ -2,8 +2,6 @@ package Assignment9.prob7a;
 
 public class Employee {
 	String firstName, lastName;
-	
-
 	int salary;
 	public Employee(String f, String l, int s) {
 		this.firstName = f;
@@ -24,6 +22,9 @@ public class Employee {
 		
 	}
 
+    public String getFullName(){
+        return getFirstName()+" "+getLastName();
+    }
 	public String getFirstName() {
 		return firstName;
 	}

@@ -1,9 +1,6 @@
 package Assignment9.prob8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
@@ -77,7 +74,7 @@ public class PuttingIntoPractice{
         System.out.println("7: What's the highest value in all the transactions?");
         Optional<Integer> higestTransaction = transactions.stream()
                 .max(Comparator.comparing(Transaction::getValue))
-                .map(val ->val.getValue());
+                .map(t -> t.getValue());
         System.out.println(higestTransaction.orElse(0));
 
     }

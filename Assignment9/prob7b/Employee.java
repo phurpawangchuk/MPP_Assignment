@@ -2,15 +2,13 @@ package Assignment9.prob7b;
 
 public class Employee {
 	String firstName, lastName;
-	
-
 	int salary;
 	public Employee(String f, String l, int s) {
 		this.firstName = f;
 		this.lastName = l;
 		this.salary = s;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("<");
@@ -23,6 +21,10 @@ public class Employee {
 		return sb.toString();
 		
 	}
+
+    public String getFullName(){
+        return getFirstName()+" "+getLastName();
+    }
 
 	public String getFirstName() {
 		return firstName;
