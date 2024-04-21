@@ -8,7 +8,7 @@ public class LambdaLibrary {
     public static final QuaFunction<List<Employee>, Integer, Character, Character, String>
              FILTER_EMPLOYEE = (emp, sal,start, end) -> emp.stream()
                     .filter(n->n.getLastName().charAt(0)>=start && n.getLastName().charAt(0)<=end)
-                    .filter(n -> n.getSalary() > 100000)
+                    .filter(n -> n.getSalary() > sal)
                     .map(n -> n.getFullName())
                     .sorted()
                     .collect(Collectors.joining(", "));

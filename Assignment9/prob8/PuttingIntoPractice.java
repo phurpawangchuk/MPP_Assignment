@@ -60,7 +60,7 @@ public class PuttingIntoPractice{
         Optional<Trader> traderInMilan = transactions.stream()
                 .filter(c ->c.getTrader().getCity().equals("Milan"))
                 .map(t->t.getTrader())
-                .findAny();
+                .findFirst();
         System.out.println(traderInMilan.orElse(null));
 
         System.out.println("6. Update all transactions");
