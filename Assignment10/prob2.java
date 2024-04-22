@@ -28,13 +28,29 @@ public class prob2 {
         LocalDate result2 = findSecondSmallest(dates);
         System.out.println("Date List: "+dates);
         System.out.println("Date Second smallest: " + result2);
+
+        List<String> str1 = new ArrayList<>(Arrays.asList("AA","AA","BB"));
+        String result11 = findSecondSmallest(str1);
+        System.out.println("String List: "+str1);
+        System.out.println("String Second smallest: " + result11);
+
     }
 
     public static <T> T findSecondSmallest(List<T> list) {
+
+        if(list.size() == 0 || list.size() == 1)
+            return null;
+
+        int t1 = (int)list.stream()
+                .distinct()
+                .count();
+        if(t1 == 1) return null;
+
         List<T> t = list.stream()
                 .sorted()
                 .distinct()
                 .collect(Collectors.toList());
         return t.get(1);
     }
+
 }
