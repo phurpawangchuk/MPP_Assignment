@@ -15,5 +15,10 @@ public class GroupUtil {
 		Group<Integer> group = new Group<>(0, list);
 		System.out.println(group);
 		System.out.println(GroupUtil.copy(group));
+
+        List<String> list1 = Arrays.asList("C++","C#","Java","Python","HTML");
+        Group<String> group1 = new Group<>("Java", list1);
+        System.out.println(group1);
+        System.out.println(GroupUtil.copy(group1));
 	}
 }
